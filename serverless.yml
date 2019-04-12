@@ -9,6 +9,7 @@ custom:
   wsgi:
     app: app.app
     packRequirements: false
+  s3Bucket: multiple-screens
 
 provider:
   name: aws
@@ -22,3 +23,13 @@ functions:
     events:
       - http: ANY /
       - http: 'ANY {proxy+}'
+
+resources:
+  Resources:
+    WebAppS3Bucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: multiple-screens
+        AccessControl: PublicRead
+        WebsiteConfiguration:
+          IndexDocument: index.html
