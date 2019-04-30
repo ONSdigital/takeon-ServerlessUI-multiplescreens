@@ -1,6 +1,6 @@
 # serverless.yml
 
-service: serverless-flask
+service: serverless-flask-multiplescreens
 
 plugins:
   - serverless-python-requirements
@@ -9,7 +9,6 @@ custom:
   wsgi:
     app: app.app
     packRequirements: false
-  s3Bucket: multiple-screens
 
 provider:
   name: aws
@@ -19,17 +18,7 @@ provider:
 
 functions:
   app:
-    handler: wsgi.handler
+    handler: wsgi_handler.handler
     events:
       - http: ANY /
       - http: 'ANY {proxy+}'
-
-resources:
-  Resources:
-    WebAppS3Bucket:
-      Type: AWS::S3::Bucket
-      Properties:
-        BucketName: multiple-screens
-        AccessControl: PublicRead
-        WebsiteConfiguration:
-          IndexDocument: index.html

@@ -1,15 +1,10 @@
 # app.py
-
 from flask import Flask, render_template, redirect, request, url_for
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
-from flask_s3 import FlaskS3
-import boto3
 app = Flask(__name__)
-# app.config['MULTIPLE-SCREENS'] = 'multiple-screens'
-s3 = bot3.resource('s3')
-bucket = s3.Bucket('multiple-screens')
+
 
 # This line is required for the flask configuration in order to pass variables
 app.config['SECRET_KEY'] = 'you-will-never-guess'
@@ -51,10 +46,3 @@ def name(name):
 # This is to run the app locally for testing
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-
-
-class FlaskS3(app=app):
-    init_app(app)
-    flask_s3.create_all(app=app, bucket_name=multiple-screens)
