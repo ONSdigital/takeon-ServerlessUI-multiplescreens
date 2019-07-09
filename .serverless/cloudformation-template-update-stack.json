@@ -19,7 +19,7 @@
     "AppLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/serverless-flask-dev-app"
+        "LogGroupName": "/aws/lambda/serverless-flask-multiplescreens2-dev-app"
       }
     },
     "IamRoleLambdaExecution": {
@@ -48,7 +48,7 @@
                 "-",
                 [
                   "dev",
-                  "serverless-flask",
+                  "serverless-flask-multiplescreens2",
                   "lambda"
                 ]
               ]
@@ -63,7 +63,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/serverless-flask-dev-app:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/serverless-flask-multiplescreens2-dev-app:*"
                     }
                   ]
                 },
@@ -74,7 +74,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/serverless-flask-dev-app:*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/serverless-flask-multiplescreens2-dev-app:*:*"
                     }
                   ]
                 }
@@ -87,7 +87,7 @@
           "Fn::Join": [
             "-",
             [
-              "serverless-flask",
+              "serverless-flask-multiplescreens2",
               "dev",
               "eu-west-2",
               "lambdaRole"
@@ -103,9 +103,9 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/serverless-flask/dev/1554989993520-2019-04-11T13:39:53.520Z/serverless-flask.zip"
+          "S3Key": "serverless/serverless-flask-multiplescreens2/dev/1556527542507-2019-04-29T08:45:42.507Z/serverless-flask-multiplescreens2.zip"
         },
-        "FunctionName": "serverless-flask-dev-app",
+        "FunctionName": "serverless-flask-multiplescreens2-dev-app",
         "Handler": "wsgi_handler.handler",
         "MemorySize": 1024,
         "Role": {
@@ -122,20 +122,20 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "AppLambdaVersionq3N8uvLiQmtqLO8KDwpTulytSOv6nk2U60b85Itse0": {
+    "AppLambdaVersionNSc8WyjBQocFNrCZYyqxQ4I65BQiKCbkX6TWYirHg": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "AppLambdaFunction"
         },
-        "CodeSha256": "FNyITs9iZJQUKalDKYYJJ8XL0SGBEKWZ5JNFtZ8uf9s="
+        "CodeSha256": "rP8EqWo7d6MRK0CtqX54W/mrbmQ9RkymZywAp5W9U8o="
       }
     },
     "ApiGatewayRestApi": {
       "Type": "AWS::ApiGateway::RestApi",
       "Properties": {
-        "Name": "dev-serverless-flask",
+        "Name": "dev-serverless-flask-multiplescreens2",
         "EndpointConfiguration": {
           "Types": [
             "EDGE"
@@ -247,7 +247,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1554989950499": {
+    "ApiGatewayDeployment1556527494135": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -317,7 +317,7 @@
     "AppLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "AppLambdaVersionq3N8uvLiQmtqLO8KDwpTulytSOv6nk2U60b85Itse0"
+        "Ref": "AppLambdaVersionNSc8WyjBQocFNrCZYyqxQ4I65BQiKCbkX6TWYirHg"
       }
     },
     "ServiceEndpoint": {

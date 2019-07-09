@@ -1,6 +1,6 @@
 # serverless.yml
 
-service: serverless-flask
+service: serverless-flask-multiplescreens
 
 plugins:
   - serverless-python-requirements
@@ -18,7 +18,7 @@ provider:
 
 functions:
   app:
-    handler: wsgi.handler
+    handler: wsgi_handler.handler
     events:
       - http: ANY /
       - http: 'ANY {proxy+}'
